@@ -22,6 +22,7 @@ public class Game extends JPanel implements Runnable, KeyListener {
 	public static final byte SCALE = 1;
 	
 	private BufferedImage dbImage;
+	private Graphics g;
 	private Graphics2D g2d;
 	private Color backgroundColor;
 	
@@ -35,9 +36,8 @@ public class Game extends JPanel implements Runnable, KeyListener {
 	public Game() {
 		super();
 		setPreferredSize(new Dimension(WIDTH * SCALE, HEIGHT * SCALE));
-		setFocusable(true);
 		requestFocus();
-		init();
+		setFocusable(true);
 	}
 	
 	private void init() {
@@ -59,7 +59,7 @@ public class Game extends JPanel implements Runnable, KeyListener {
 	}
 	
 	private void renderToScreen() {
-		Graphics g = getGraphics();
+		g = getGraphics();
 		g.drawImage(dbImage, 0, 0, WIDTH * SCALE, HEIGHT * SCALE, null);
 		g.dispose();
 	}
